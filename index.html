@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Reset Css: -->
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <!-- Base Css: -->
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <!-- Style Css -->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <!-- Fontawesome: -->
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+        <!-- Jquery: -->
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"
+        ></script>
+        <!-- Vuejs -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>VueLearning</title>
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="grid">
+                <div class="header_container">
+                    <div class="logo">
+                        <img
+                            v-bind:title="logoHeaderImageTitle"
+                            v-bind:src="logoHeaderImageSrc"
+                        />
+                        <div class="logo_text">
+                            <p>
+                                KIEU<span>V<span>U.</span> </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="navBar">
+                        <ul>
+                            <li v-for="item in navBarItems">
+                                <a href="#">{{item}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navBar_mobile">
+                        <input
+                            type="checkbox"
+                            name="navBarMobile"
+                            id="navBarMobile"
+                            hidden
+                        />
+                        <label for="navBarMobile" class="nav_overlay"></label>
+                        <label for="navBarMobile" class="openMenu">
+                            <i class="fas fa-bars"></i>
+                        </label>
+                        <div class="navBar_mobile_menu">
+                            <label for="navBarMobile" class="closeMenu">
+                                <i class="fas fa-times"></i>
+                            </label>
+                            <ul>
+                                <li v-for="item in navBarItems">
+                                    <a href="#">{{item}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" v-bind:style="bgrImg">
+            <div class="grid">
+                <div class="home_container">
+                    <div class="home_heading">
+                        <h1>
+                            {{headingLargerText}}
+                            <br />
+                            <span> {{framework}} </span>
+                        </h1>
+                        <h2>{{headingSmallerText}}</h2>
+                        <div class="home_btn">
+                            <input type="button" value="Read More" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="service">
+            <div class="grid">
+                <div class="service_container">
+                    <div class="service_heading">
+                        <h1>Our Courses</h1>
+                    </div>
+                    <div class="service_card">
+                        <div class="card_sv" v-for="card in cards">
+                            <div class="card_logo">
+                                <img v-bind:src="card.img" alt="" />
+                            </div>
+                            <div class="card_heading">
+                                <h1>{{card.framework}}</h1>
+                                <h3>Created by {{card.author}}</h3>
+                            </div>
+                            <div class="card_rank">
+                                <h2>{{card.describ}}</h2>
+                            </div>
+                            <div class="LOD">
+                                <span
+                                    >Level Of Difficult:
+                                    <span v-bind:style="{color: card.color}">
+                                        {{card.levelOfDifficult}}
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="about">
+            <div class="grid">
+                <div class="about_container">
+                    <div class="about_heading">
+                        <h1>About Me</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="back_to_top" v-bind:title="bttTitle">
+            <i v-bind:title="bttTitle" class="fad fa-chevron-double-up"></i>
+        </button>
+        <!-- Javascript -->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/jq.js"></script>
+    </body>
+</html>
